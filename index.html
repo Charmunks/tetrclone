@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TETR Clone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div class="side left">
+    <div class="panel"><h4>HOLD</h4><canvas id="hold" width="120" height="90"></canvas></div>
+    <div class="panel stats">
+      <div class="stat big"><span class="label">TIME</span><span id="time">0:00.000</span></div>
+      <div class="stat"><span class="label" id="goalLabel">LINES</span><span id="lines">0</span></div>
+      <div class="stat"><span class="label">SCORE</span><span id="score">0</span></div>
+      <div class="stat"><span class="label">LEVEL</span><span id="level">1</span></div>
+      <div class="stat"><span class="label">PIECES</span><span id="pieces">0</span></div>
+      <div class="stat"><span class="label">PPS</span><span id="pps">0.00</span></div>
+    </div>
+    <div id="action"></div>
+  </div>
+
+  <div class="boardwrap">
+    <canvas id="board" width="300" height="600"></canvas>
+    <div id="center"></div>
+
+    <div class="overlay" id="menu">
+      <h1>TETR CLONE</h1>
+      <button data-mode="sprint">40 LINES<small>Clear 40 lines as fast as you can</small></button>
+      <button data-mode="blitz">BLITZ<small>Highest score in 2 minutes</small></button>
+      <button data-mode="zen">ZEN<small>Endless, no pressure</small></button>
+      <button id="openSettings" class="alt">SETTINGS</button>
+      <div class="pb" id="pbs"></div>
+    </div>
+
+    <div class="overlay hidden" id="result">
+      <h2 id="resTitle"></h2>
+      <div id="resBody"></div>
+      <button id="resRetry">RETRY <small>R</small></button>
+      <button id="resMenu" class="alt">MENU <small>Esc</small></button>
+    </div>
+
+    <div class="overlay hidden" id="settings">
+      <h2>SETTINGS</h2>
+      <div class="sliders">
+        <label>DAS <span id="dasV"></span><input type="range" id="das" min="0" max="500" step="1"></label>
+        <label>ARR <span id="arrV"></span><input type="range" id="arr" min="0" max="100" step="1"></label>
+        <label>SDF <span id="sdfV"></span><input type="range" id="sdf" min="5" max="41" step="1"></label>
+        <label class="chk"><input type="checkbox" id="ghost"> Ghost piece</label>
+        <label class="chk"><input type="checkbox" id="grid"> Grid</label>
+        <label class="chk"><input type="checkbox" id="light"> Light mode</label>
+      </div>
+      <h3>CONTROLS <small>(click, then press a key)</small></h3>
+      <div id="keys"></div>
+      <button id="closeSettings">BACK</button>
+      <button id="resetSettings" class="alt">RESET DEFAULTS</button>
+    </div>
+  </div>
+
+  <div class="side right">
+    <div class="panel"><h4>NEXT</h4><canvas id="next" width="120" height="330"></canvas></div>
+    <div class="hint">
+      <b>R</b> retry &nbsp; <b>Esc</b> menu<br><b>Ctrl+Z</b> undo (Zen)
+    </div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
